@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Corazón</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b1522;
+      font-family: 'Fredoka One', cursive;
+      font-weight: 700;
+    }
+    .heart{
+      height: 150px;
+      width: 150px;
+      background-color: red;
+      position: relative;
+      transform: rotate(45deg);
+      box-shadow: -20px 20px 150px #f20044;
+      animation: palpitar 0.5s linear infinite alternate;
+    }
+    .contenido{
+        position: fixed;
+        margin-bottom: 50px;
+        text-align: center;
+        animation: palpitar2 0.2s linear infinite alternate;
+    }
+    .boton{
+        position: fixed;
+        display: inline-block;
+        padding: 15px 30px;
+        font-family:Verdana,Helvetica;
+        font-weight:inherit;
+        color: #fff;
+        border: none;
+        background: #04426b;
+        letter-spacing: 4px;
+        overflow: hidden;
+        transition: 0.2s;
+        text-anchor: 30px;
+        cursor: pointer;
+        top: 78%;
+
+    }
+
+    .boton:hover{
+       background: #205375; 
+       box-shadow: 0 0 10px #205375, 0 0 40px
+       #205375, 0 0 80px #205375;
+       transition-delay: 1ms;
+    }
+
+    @keyframes palpitar{
+      0%{transform: rotate(45deg) scale(1.10);}
+      80%{transform: rotate(45deg) scale(1.0);}
+      100%{transform: rotate(45deg) scale(0.8);}
+    }
+
+    @keyframes palpitar2{
+      0%{transform: rotate(0deg) scale(1.10);}
+      80%{transform: rotate(0deg) scale(1.0);}
+      100%{transform: rotate(0deg) scale(0.8);}
+    }
+
+    .heart::before{
+      content: "";
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      background: red;
+      right: 50%;
+      border-radius: 50%;
+      box-shadow: -20px 20px 150px #f20044;
+    }
+
+    .heart::after{
+      content: "";
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      background: red;
+      top: -50%;
+      border-radius: 50%;
+      box-shadow: -20px 20px 150px #f20044;
+    }    
+  </style>
+  
+<body>
+  <div class="heart"></div>
+  <div class="contenido"><h1>TE AMO</h1><h1>MISHEL</h1></div>
+  <button id="feliz" class="boton">FELÍZ 3 MESES MI AMOR</button>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script>
+        const jsConfetti = new JSConfetti();
+
+        document.querySelector("#feliz").addEventListener("click", (e) => {
+            jsConfetti.addConfetti();
+        });
+    </script>
+</body>
+
+</html>
